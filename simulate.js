@@ -52,7 +52,7 @@ run(config, (state) => {
     console.log(
       state.value,
       `operations`,
-      state.context.operatons?.map((op) => {
+      state.context.operations?.map((op) => {
         return { value: op.state.value, context: op.state.context }
       }),
       `nodes`,
