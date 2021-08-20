@@ -1,6 +1,7 @@
 const { run } = require(`shakespeares-monkeys`)
 const fs = require(`fs-extra`)
-const {execSync} = require(`child_process`)
+const { execSync } = require(`child_process`)
+const util = require(`util`)
 
 async function createOperator(id) {
   console.log(`createOperator`, id)
@@ -45,12 +46,17 @@ const config = {
   interval: 10,
 }
 
-run(config,
-  (state) => {
-    console.log(`event: `, state.event.type)
-    if (state.changed) {
-      console.log(state.value, state.context)
-    }
+run(config, (state) => {
+  console.log(`event: `, state.event.type)
+  if (state.changed) {
+    console.log(
+      state.value,
+      `operations`,
+      state.context.operatons?.map((op) => {
+        return { value: op.state.value }
+      }),
+      `nodes`,
+      util.inspect(state.context.nodes, false, null, true)
+    )
   }
-)
-
+})
