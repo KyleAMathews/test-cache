@@ -9324,10 +9324,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakespeares-monkeys@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/shakespeares-monkeys/-/shakespeares-monkeys-0.0.4.tgz#36d09cf34c575563b1e572aff848b0b43aa43182"
-  integrity sha512-Xfwb7n9Fk3Dv8itfdA6oVlN47npjDmG3DrairhRCFWyHVi7QWs+pjRDu5WUXAVyhuShfw6z54MO27XFaXYor1w==
+shakespeares-monkeys@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/shakespeares-monkeys/-/shakespeares-monkeys-0.0.6.tgz#eaf386538bb2e243c4b9391ae17d0c9ca0f9e8e2"
+  integrity sha512-raKJEwZSe6YgPFiloiZhyIUEEU7SXY7l25vvuV5r7eqqrYXZjgjLID99nVoZ1xXID8Gk03goYaYCo8MBcmldIQ==
   dependencies:
     asciichart "^1.5.25"
     fs-extra "^10.0.0"
