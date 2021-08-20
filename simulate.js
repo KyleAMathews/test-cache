@@ -53,7 +53,7 @@ run(config, (state) => {
       state.value,
       `operations`,
       state.context.operatons?.map((op) => {
-        return { value: op.state.value, latency: op.state.latency }
+        return { value: op.state.value, latency: op.state.context.latency }
       }),
       `nodes`,
       util.inspect(state.context.nodes, false, null, true)
