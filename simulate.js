@@ -52,9 +52,7 @@ run(config, (state) => {
     console.log(
       state.value,
       `operations`,
-      state.context.operatons?.map((op) => {
-        return { value: op.state.value, latency: op.state.context.latency }
-      }),
+      util.inspect(state.context.operations, false, null, true),
       `nodes`,
       util.inspect(state.context.nodes, false, null, true)
     )
