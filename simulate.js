@@ -52,7 +52,9 @@ run(config, (state) => {
     console.log(
       state.value,
       `operations`,
-      util.inspect(state.context.operations, false, null, true),
+      state.context.operatons?.map((op) => {
+        return { value: op.state.value, context: op.state.context }
+      }),
       `nodes`,
       util.inspect(state.context.nodes, false, null, true)
     )
