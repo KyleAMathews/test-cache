@@ -1,3 +1,5 @@
+const { setTimeout: setTimeoutPromise } = require(`timers/promises`)
+
 exports.sourceNodes = async ({ cache, actions, getNode }) => {
   // Create/update plugin cache value
   let prevValue = (await cache.get(`hi`)) || 0
@@ -36,4 +38,8 @@ exports.sourceNodes = async ({ cache, actions, getNode }) => {
   node = getNode(`test-cache`)
 
   console.log(`after`, { node })
+}
+
+exports.createPages = async () => {
+  await setTimeoutPromise(5000)
 }
