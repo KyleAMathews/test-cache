@@ -1,28 +1,32 @@
 const { setTimeout: setTimeoutPromise } = require(`timers/promises`)
 
-exports.sourceNodes = async ({ cache, actions, getNode }) => {
+exports.sourceNodes = async ({ cache, actions, getNode, store }) => {
   // Create/update plugin cache value
-  let prevValue = (await cache.get(`hi`)) || 0
-  if (!prevValue) {
-    console.log(`cache doesn't exist`)
-  } else {
-    console.log(`cache does exist`)
-    console.log({ prevValue })
-  }
+  let pluginCache = (await cache.get(`hi`)) || 0
+  console.log({ pluginCache })
 
-  prevValue += 1
-  await cache.set(`hi`, prevValue)
+  pluginCache += 1
+  await cache.set(`hi`, pluginCache)
+
+  // Plugin Status
+  const pluginStatus =
+    store.getState().status.plugins?.[`default-site-plugin`]?.pluginStatus || 0
+
+  console.log({ pluginStatus })
+
+  actions.setPluginStatus({
+    pluginStatus: pluginStatus + 1,
+  })
 
   let node = getNode(`test-cache`)
 
   let nodeCounter = 0
   if (node) {
-    console.log(`before`, { node })
-    nodeCounter = node.nodeCounter + 1
+    nodeCounter = node.nodeCounter
   }
-
-  console.log({ nodeCounter: node?.nodeCounter })
   console.log({ nodeCounter })
+
+  nodeCounter += 1
 
   actions.createNode({
     id: `test-cache`,
@@ -34,10 +38,6 @@ exports.sourceNodes = async ({ cache, actions, getNode }) => {
       type: `testCache`,
     },
   })
-
-  node = getNode(`test-cache`)
-
-  console.log(`after`, { node })
 }
 
 exports.createPages = async () => {
